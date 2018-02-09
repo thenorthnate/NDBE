@@ -8,11 +8,17 @@ package main
 
 import (
   "fmt"
+  "os"
   //"net"
 )
 
+var response int
+
 func main() {
   // run the main code here!
-  fmt.Println("hello world")
-  create_private_key()
+  cwd, _ := os.Getwd()
+  filePath := cwd + "/key.n"
+
+  response = create_private_key(filePath)
+  fmt.Printf("Response: %v\n", response)
 }
