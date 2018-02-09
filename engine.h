@@ -6,7 +6,8 @@
 
 #define FILETYPE ".n"
 
-int generate_private_key(void);
+int write_private_key(void);
+int read_private_key(void);
 
 
 typedef struct {
@@ -25,12 +26,16 @@ typedef struct {
   char *password;
 } USERHEADER; //uh
 
+typedef struct {
+  unsigned char tableNameLength;
+  char *tableName;
+} TABLE;
 
-typedef struct COL{
+
+typedef struct {
   unsigned nameLength;
   char *name;
-  struct COL *next;
-} COL; //col
+} TABLECOLUMN; //tc
 
 
 typedef struct {
