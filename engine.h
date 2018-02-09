@@ -5,13 +5,14 @@
 #include <string.h>
 
 #define FILETYPE ".n"
+#define KEYLENGTH 1024
 
 int write_private_key(void);
 int read_private_key(void);
 
 
 typedef struct {
-  char fileType[2];
+  char fileType[sizeof(FILETYPE)];
   unsigned headerLength;
   unsigned long long fileLength;
   unsigned tableCount;
@@ -39,5 +40,5 @@ typedef struct {
 
 
 typedef struct {
-  char key[1024];
+  char key[KEYLENGTH];
 } KEY;

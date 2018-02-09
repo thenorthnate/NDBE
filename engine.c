@@ -5,6 +5,7 @@ int main(void) {
   int success;
   success = write_private_key();
   success = read_private_key();
+  printf("DONE.\n");
 
   // sleep(3);
 }
@@ -51,12 +52,6 @@ int read_private_key(void) {
   fread(&k, sizeof(KEY), 1, inptr);
   fclose(inptr);
 
-  for (int i=0; i<sizeof(KEY); i++) {
-    printf("%c", k.key[i]);
-    if (i%80 == 0) {
-      printf("\n");
-    }
-  }
-  printf("\n");
+  printf("The key file has: %llu bytes in it.\n", fh.fileLength);
   return 200;
 }
